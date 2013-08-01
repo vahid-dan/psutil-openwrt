@@ -27,17 +27,16 @@ define Package/python-psutil/description
 endef
 
 define Build/Compile
-	$(INSTALL_DIR) $(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)
-	$(CP) \
-		$(PKG_BUILD_DIR)/psutil \
-       		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)
+	$(call Build/Compile/PyMod,., \
+		install --prefix="/usr" --root="$(PKG_INSTALL_DIR)" \
+	)
 endef
 
 define Package/python-psutil/install
 	$(INSTALL_DIR) $(1)$(PYTHON_PKG_DIR)
 	$(CP) \
-		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/psutil \
-		$(1)$(PYTHON_PKG_DIR)
+		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
+		$(1)$(PYTHON_PKG_DIR)/
 endef
 
 $(eval $(call BuildPackage,python-psutil))
