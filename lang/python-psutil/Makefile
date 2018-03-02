@@ -20,22 +20,15 @@ define Package/python-psutil
   CATEGORY:=Languages
   TITLE:=python-psutil
   URL:=https://github.com/giampaolo/psutil
-  DEPENDS:=+python
 endef
 
 define Package/python-psutil/description
   psutil is a module providing an interface for retrieving information on all running processes and system utilization (CPU, memory, disks, network, users) in a portable way by using Python.
 endef
 
-define Build/Compile
-	$(call Build/Compile/PyMod,., \
-		install --prefix="/usr" --root="$(PKG_INSTALL_DIR)" \
-	)
-endef
-
 define Package/python-psutil/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/python-psutil $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/python-psutil/usr/bin $(1)/usr/bin/
 endef
 
 $(eval $(call BuildPackage,python-psutil))
