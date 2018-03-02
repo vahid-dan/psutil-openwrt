@@ -1,11 +1,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=psutil
-PKG_VERSION:=1.0.1
+PKG_VERSION:=5.4.3
 PKG_RELEASE:=1
 
 PKG_SOURCE:=psutil-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://psutil.googlecode.com/files/
+PKG_SOURCE_URL:=https://pypi.python.org/packages/e2/e1/600326635f97fee89bf8426fef14c5c29f4849c79f68fd79f433d8c1bd96/
+PKG_MD5SUM:=3b291833dbea631db9d271aa602a169a
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_BUILD_DEPENDS:=python
@@ -18,7 +19,7 @@ define Package/python-psutil
   SECTION:=lang
   CATEGORY:=Languages
   TITLE:=python-psutil
-  URL:=http://code.google.com/p/psutil/
+  URL:=https://github.com/giampaolo/psutil
   DEPENDS:=+python
 endef
 
