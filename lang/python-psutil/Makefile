@@ -34,10 +34,8 @@ define Build/Compile
 endef
 
 define Package/python-psutil/install
-	$(INSTALL_DIR) $(1)$(PYTHON_PKG_DIR)
-	$(CP) \
-		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
-		$(1)$(PYTHON_PKG_DIR)/
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/python-psutil $(1)/usr/bin/
 endef
 
 $(eval $(call BuildPackage,python-psutil))
